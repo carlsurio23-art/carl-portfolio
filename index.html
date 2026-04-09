@@ -1,1 +1,566 @@
-# carl-portfolio
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Carl Darryl Surio | IT / Admin Specialist</title>
+  <meta name="description" content="Portfolio of Carl Darryl Surio — IT/Admin Specialist focused on technical support, systems, and operations." />
+
+  <style>
+    :root{
+      /* Soft B&W aesthetic */
+      --bg: #0f0f10;          /* soft black */
+      --panel: #141416;       /* elevated surface */
+      --panel2:#101012;
+      --text: #f2f2f2;        /* soft white */
+      --muted:#b9b9bb;        /* warm gray */
+      --line: rgba(255,255,255,.10);
+      --line2: rgba(255,255,255,.16);
+
+      /* Subtle monochrome accents */
+      --accent: rgba(255,255,255,.88);
+      --accent2: rgba(255,255,255,.55);
+
+      --shadow: 0 18px 55px rgba(0,0,0,.55);
+      --radius: 18px;
+      --max: 1100px;
+      --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
+
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+    body{
+      margin:0;
+      font-family:var(--font);
+      color:var(--text);
+      background:
+        radial-gradient(900px 450px at 20% 0%, rgba(255,255,255,.06), transparent 55%),
+        radial-gradient(700px 350px at 85% -10%, rgba(255,255,255,.04), transparent 60%),
+        linear-gradient(180deg, #0b0b0c 0%, var(--bg) 100%);
+      line-height:1.6;
+      letter-spacing:.1px;
+    }
+
+    a{ color:inherit; text-decoration:none; }
+    .container{ max-width:var(--max); margin:0 auto; padding:0 20px; }
+
+    /* Subtle film grain */
+    .grain{
+      position:fixed; inset:0; pointer-events:none; z-index:9999;
+      opacity:.06;
+      background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
+      mix-blend-mode:overlay;
+    }
+
+    /* Top nav */
+    .nav{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background: rgba(15,15,16,.72);
+      border-bottom:1px solid var(--line);
+    }
+    .nav-inner{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+      gap:16px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      font-weight:700;
+      letter-spacing:.2px;
+    }
+    .mark{
+      width:12px; height:12px; border-radius:4px;
+      background: rgba(255,255,255,.85);
+      box-shadow: 0 0 0 6px rgba(255,255,255,.08);
+    }
+    .nav-links{
+      display:flex; gap:14px; flex-wrap:wrap; justify-content:flex-end;
+      font-size:14px; color:var(--muted);
+    }
+    .nav-links a{ padding:8px 10px; border-radius:999px; }
+    .nav-links a:hover{ background:rgba(255,255,255,.06); color:var(--text); }
+
+    /* Buttons */
+    .btn-row{ display:flex; gap:12px; flex-wrap:wrap; margin-top:18px; }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:10px 14px;
+      border-radius:999px;
+      border:1px solid var(--line2);
+      background: rgba(255,255,255,.06);
+      color:var(--text);
+      font-weight:600;
+      font-size:14px;
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+    }
+    .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.085); }
+    .btn.primary{
+      background: rgba(255,255,255,.92);
+      border-color: rgba(255,255,255,.90);
+      color:#0d0d0e;
+    }
+    .btn.primary:hover{ background: rgba(255,255,255,1); }
+    .btn.ghost{ background: transparent; border-color: var(--line); color: var(--muted); }
+    .btn.ghost:hover{ color: var(--text); border-color: var(--line2); }
+
+    /* Hero */
+    .hero{ padding:74px 0 42px; }
+    .hero-grid{
+      display:grid; gap:18px;
+      grid-template-columns: 1.2fr .8fr;
+      align-items:stretch;
+    }
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .hero-card{ padding:28px; position:relative; overflow:hidden; }
+    .hero-card::after{
+      content:"";
+      position:absolute; inset:-2px;
+      background: radial-gradient(700px 240px at 20% 0%, rgba(255,255,255,.12), transparent 55%);
+      pointer-events:none;
+      opacity:.55;
+    }
+
+    .kicker{
+      display:inline-flex; align-items:center; gap:10px;
+      font-size:13px; color:var(--muted);
+      border:1px solid var(--line);
+      background: rgba(0,0,0,.18);
+      padding:8px 12px;
+      border-radius:999px;
+      position:relative;
+      z-index:1;
+    }
+    .title{
+      margin:14px 0 8px;
+      font-size:42px;
+      line-height:1.15;
+      letter-spacing:-.6px;
+      position:relative;
+      z-index:1;
+    }
+    .subtitle{
+      margin:0;
+      color:var(--muted);
+      font-size:16px;
+      max-width:60ch;
+      position:relative;
+      z-index:1;
+    }
+    .meta{
+      margin-top:16px;
+      display:flex; gap:14px; flex-wrap:wrap;
+      color:var(--muted);
+      font-size:14px;
+      position:relative;
+      z-index:1;
+    }
+    .pill{
+      border:1px solid var(--line);
+      background: rgba(0,0,0,.16);
+      padding:8px 10px;
+      border-radius:999px;
+    }
+
+    .side-card{ padding:22px; display:flex; flex-direction:column; gap:14px; }
+    .side-card h3{ margin:0; font-size:16px; }
+    .side-card p{ margin:0; color:var(--muted); font-size:14px; }
+
+    .mini{
+      display:grid; gap:10px;
+      grid-template-columns: 1fr 1fr;
+    }
+    .mini .stat{
+      padding:14px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background: rgba(0,0,0,.12);
+    }
+    .stat strong{ display:block; font-size:16px; }
+    .stat span{ color:var(--muted); font-size:13px; }
+
+    /* Sections */
+    section{ padding:48px 0; }
+    .section-title{
+      display:flex; align-items:flex-end; justify-content:space-between;
+      gap:14px; flex-wrap:wrap;
+      margin-bottom:16px;
+    }
+    .section-title h2{
+      margin:0;
+      font-size:22px;
+      letter-spacing:-.2px;
+    }
+    .section-title p{ margin:0; color:var(--muted); font-size:14px; }
+
+    .grid-2{ display:grid; gap:16px; grid-template-columns: 1fr 1fr; }
+    .grid-3{ display:grid; gap:16px; grid-template-columns: repeat(3, 1fr); }
+
+    .panel{ padding:22px; border-radius:var(--radius); }
+    .panel h3{ margin:0 0 10px; font-size:16px; }
+    .panel p{ margin:0; color:var(--muted); }
+    .list{ margin:10px 0 0; padding-left:18px; color:var(--muted); }
+    .list li{ margin:6px 0; }
+
+    /* Experience cards */
+    .job{ padding:22px; }
+    .job-top{
+      display:flex; justify-content:space-between; align-items:flex-start; gap:10px;
+      margin-bottom:8px;
+    }
+    .job-title{ font-weight:700; }
+    .job-meta{ color:var(--muted); font-size:13px; }
+    .tags{ display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; }
+    .tag{
+      font-size:12px;
+      color:var(--muted);
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      padding:6px 10px;
+      border-radius:999px;
+    }
+
+    /* Skills */
+    .skill-group{ padding:22px; }
+    .skill-group h3{ margin:0 0 12px; font-size:16px; }
+    .chips{ display:flex; flex-wrap:wrap; gap:8px; }
+    .chip{
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(0,0,0,.10);
+      font-size:13px;
+      color:var(--muted);
+    }
+
+    /* Footer */
+    footer{
+      padding:26px 0 40px;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+      font-size:14px;
+    }
+    .footer-inner{
+      display:flex; justify-content:space-between; align-items:center;
+      gap:12px; flex-wrap:wrap;
+    }
+
+    /* Responsive */
+    @media (max-width: 920px){
+      .hero-grid{ grid-template-columns: 1fr; }
+      .title{ font-size:36px; }
+      .grid-3{ grid-template-columns: 1fr; }
+    }
+    @media (max-width: 680px){
+      .grid-2{ grid-template-columns: 1fr; }
+      .nav-links{ display:none; }
+      .title{ font-size:32px; }
+    }
+
+    /* Respect reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      .btn{ transition:none; }
+      html{ scroll-behavior:auto; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a class="brand" href="#top" aria-label="Home">
+          <span class="mark" aria-hidden="true"></span>
+          <span>Carl Darryl Surio</span>
+        </a>
+
+        <nav class="nav-links" aria-label="Primary">
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#experience">Experience</a>
+          <a href="#education">Education</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <a class="btn primary" href="#contact">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="card hero-card">
+            <div class="kicker">
+              <span>IT / Admin Specialist</span>
+              <span style="opacity:.6">•</span>
+              <span>Makati, Philippines</span>
+            </div>
+
+            <h1 class="title">Smooth operations, reliable IT support, and practical automation.</h1>
+            <p class="subtitle">
+              I help teams stay productive by resolving issues quickly, maintaining office systems, and improving
+              workflows through tools like Jira Automation—so operations stay stable and efficient.
+            </p>
+
+            <div class="meta">
+              <span class="pill">BS Information Technology • Bulacan State University (2024)</span>
+              <span class="pill">Cisco • Microsoft • Jira Automation • QA</span>
+            </div>
+
+            <div class="btn-row" style="position:relative; z-index:1;">
+              <a class="btn primary" href="#experience">View Experience</a>
+              <a class="btn" href="#skills">View Skills</a>
+              <a class="btn ghost" href="https://www.linkedin.com/in/carl-darryl-surio-a59525325/" target="_blank" rel="noreferrer">LinkedIn</a>
+            </div>
+          </div>
+
+          <aside class="card side-card" aria-label="Highlights">
+            <h3>Highlights</h3>
+            <p>Hands-on troubleshooting + Operations Mindset + Continuous Learning.</p>
+
+            <div class="mini">
+              <div class="stat">
+                <strong>Tech Support</strong>
+                <span>Hardware • OS • Remote support</span>
+              </div>
+              <div class="stat">
+                <strong>Automation</strong>
+                <span>Jira automation • Workflow improvements</span>
+              </div>
+              <div class="stat">
+                <strong>Operations</strong>
+                <span>Office admin • FM • Asset oversight</span>
+              </div>
+              <div class="stat">
+                <strong>Quality</strong>
+                <span>Software testing • QA fundamentals</span>
+              </div>
+            </div>
+
+            <div class="tags" aria-label="Top skills">
+              <span class="tag">Jira</span>
+              <span class="tag">Operating Systems</span>
+              <span class="tag">Network Admin</span>
+              <span class="tag">Hardware Diagnostics</span>
+              <span class="tag">Software Testing</span>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="container">
+        <div class="section-title">
+          <h2>About</h2>
+          <p>IT Support + Admin Operations, Built for Reliability</p>
+        </div>
+
+        <div class="card panel">
+          <p>
+            I'm currently IT / Admin Specialist at CoDev with hands-on experience in technical support, system administration, and IT operations. 
+            Bachelor’s degree in Information Technology with certifications in Cisco, Microsoft Technical Diagnostics, Jira Automation, and Software Testing. 
+            Skilled in hardware diagnostics, OS and network troubleshooting, and workflow automation—ensuring infrastructure reliability, software quality, and minimal downtime. 
+            Committed to continuous learning and delivering efficient, stable IT environments that support team performance and client success.
+          </p>
+          <ul class="list">
+            <li>Certified in Cisco Cybersecurity & Hardware Basics, Microsoft Troubleshooting, and Jira Automation.</li>
+            <li>Continuous upskilling in Software Testing, Operating Systems, and related IT fundamentals.</li>
+            <li>Passionate about efficiency, stability, and supporting team success.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <div class="container">
+        <div class="section-title">
+          <h2>Skills & Tools</h2>
+          <p></p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card skill-group">
+            <h3>Technical Support</h3>
+            <div class="chips">
+              <span class="chip">Hardware Diagnostics</span>
+              <span class="chip">Computer Troubleshooting</span>
+              <span class="chip">Hardware Installation</span>
+              <span class="chip">Software Installation</span>
+              <span class="chip">Remote Troubleshooting</span>
+              <span class="chip">Technical Support</span>
+            </div>
+          </div>
+
+          <div class="card skill-group">
+            <h3>Systems & Data</h3>
+            <div class="chips">
+              <span class="chip">Operating Systems</span>
+              <span class="chip">Network Administration</span>
+              <span class="chip">Troubleshooting</span>
+              <span class="chip">MySQL</span>
+              <span class="chip">PHP</span>
+              <span class="chip">UI Design</span>
+            </div>
+          </div>
+
+          <div class="card skill-group">
+            <h3>Operations & Automation</h3>
+            <div class="chips">
+              <span class="chip">Jira</span>
+              <span class="chip">Jira Automation</span>
+              <span class="chip">Office Administration</span>
+              <span class="chip">Facility Management (FM)</span>
+              <span class="chip">Cash Management</span>
+              <span class="chip">Process Improvement</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <div class="container">
+        <div class="section-title">
+          <h2>Experience</h2>
+          <p>Impact-focused Responsibilities</p>
+        </div>
+
+        <div class="card job">
+          <div class="job-top">
+            <div>
+              <div class="job-title">IT / Admin Specialist</div>
+              <div class="job-meta">CoDev • Makati, Philippines</div>
+            </div>
+            <div class="job-meta">Current</div>
+          </div>
+
+          <ul class="list">
+            <li>Deliver day-to-day technical support to minimize downtime and keep teams productive.</li>
+            <li>Diagnose and resolve hardware, OS, and connectivity issues with a structured troubleshooting approach.</li>
+            <li>Provide remote assistance for fast issue resolution and operational continuity.</li>
+            <li>Build and maintain Jira automations to streamline recurring tasks and improve tracking.</li>
+            <li>Support office operations and facilities where technology and administration overlap.</li>
+          </ul>
+
+          <div class="tags" aria-label="Role keywords">
+            <span class="tag">IT Support</span>
+            <span class="tag">Systems</span>
+            <span class="tag">Automation</span>
+            <span class="tag">Ops</span>
+            <span class="tag">Troubleshooting</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education">
+      <div class="container">
+        <div class="section-title">
+          <h2>Education</h2>
+          <p>Academic Foundation + Credentials</p>
+        </div>
+
+        <div class="grid-2">
+          <div class="card panel">
+            <h3>Bulacan State University</h3>
+            <p><strong>BS in Information Technology</strong> • 2024</p>
+            <p class="job-meta" style="margin-top:10px">
+              Focus areas: Operating Systems, databases, and fundamentals of software testing/QA.
+            </p>
+          </div>
+
+          <div class="card panel">
+            <h3>Certifications (Highlights)</h3>
+            <ul class="list">
+              <li>Cisco Cybersecurity</li>
+              <li>Cisco Computer Hardware Basics</li>
+              <li>Microsoft Technical Diagnostics and Troubleshooting Techniques</li>
+              <li>Automate tasks and processes with Jira</li>
+              <li>The Complete 2025 Software Testing Bootcamp</li>
+              <li>Cisco Operating Systems Basics</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="container">
+        <div class="section-title">
+          <h2>Contact</h2>
+          <p>Open to IT Support, System Admin, and QA Tester</p>
+        </div>
+
+          <div class="card panel">
+            <h3>Reach me</h3>
+            <p style="margin-top:6px">
+              <strong>Email:</strong>
+              <a href="mailto:darrylsurio@gmail.com" style="color:var(--accent); text-decoration:underline; text-underline-offset:3px;">darrylsurio@gmail.com</a><br />
+              <strong>Location:</strong> San Jose Del Monte, Bulacan / Makati, Philippines<br />
+              <strong>LinkedIn:</strong>
+              <a href="https://www.linkedin.com/in/carl-darryl-surio-a59525325/" target="_blank" rel="noreferrer"
+                 style="color:var(--accent); text-decoration:underline; text-underline-offset:3px;">View Profile</a>
+            </p>
+          
+           <div class="btn-row">
+             <a class="btn primary" href="#" onclick="sendEmail(event)">Email Me</a>
+             <a class="btn" href="#top">Back to Top</a>
+           </div>
+
+           <script>
+             function sendEmail(e) {
+             e.preventDefault();
+
+             const email = "darrylsurio@gmail.com";
+             const subject = "Inquiry";
+             const body = "Hello Darryl,";
+
+             const gmail = `https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+             const mailto = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+             const win = window.open(gmail, "_blank");
+
+             setTimeout(() => {
+               if (!win || win.closed || typeof win.closed === "undefined") {
+               window.location.href = mailto;
+                }
+              }, 500);
+            }
+          </script>
+        </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <span>© <span id="year"></span> Carl Darryl Surio</span>
+        <span></span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
